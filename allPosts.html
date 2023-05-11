@@ -1,111 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="allPosts.css">
-    <style>
-      body {
-        font-family: Copperplate, sans-serif;
-      }
-    </style>
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="allPosts.css">
+  <style>
+    body {
+      font-family: Copperplate, sans-serif;
+    }
+  </style>
+  <title>Document</title>
 </head>
+
 <body>
   <header>
-    <a href="homePage.html"><h1>The Illusion of Immortality</h1></a>
+    <a href="homePage.html">
+      <h1>The Illusion of Immortality</h1>
+    </a>
   </header>
 
-    <!---------------Search and Sort functions------------------------>
-      <br />
-      <br />
-    <label for="input-search">Search:</label>
-<input type="text" id="input-search" placeholder="Search">
+  <!---------------Search and Sort functions------------------------>
+  <br />
+  <br />
+  <label for="input-search">Search:</label>
+  <input type="text" id="input-search" placeholder="Search">
 
-<select id="sort-options">
+  <select id="sort-options">
     <option value="nosort" selected>Original Order</option>
     <option value="year">Sort by Year (Newest First)</option>
     <option value="song">Sort by Song Title (A-Z)</option>
-</select>
+  </select>
 
 
   <!-- grid container  -->
 
-    <article>
-  <div id="posts" class="grid-container">
-    <div class="grid-item">
-      <img src="" alt="" />
+  <article>
+    <div id="posts" class="grid-container">
+      <div class="grid-item">
+        <img src="" alt="" />
+      </div>
     </div>
-  </div>
   </article>
 
 
   <!-----------------------POST CLICKED DIALOGMore info--------------------------------->
- 
-<dialog id="post-clicked-dialog">
-  <div id="post-clicked-grid">
-    <div id="post-clicked-info">
-      <p id="Description"></p>
-      <p id="name"></p>
-      <p id="year"></p>
-      <p id="song"></p>
+
+  <dialog id="post-clicked-dialog">
+    <div id="post-clicked-grid">
+      <div id="post-clicked-info">
+        <p id="Description"></p>
+        <p id="name"></p>
+        <p id="year"></p>
+        <p id="song"></p>
+      </div>
+      <div id="post-clicked-image">
+        <img id="dialog-image" src="" alt="post image">
+      </div>
+      <button id="btn-close-dialog">close</button>
+      <button id="btn-update">update</button>
+      <button id="btn-delete">delete</button>
     </div>
-    <div id="post-clicked-image">
-      <img id="dialog-image" src="" alt="post image">
-    </div>
-    <button id="btn-close-dialog">close</button>
-  <button id="btn-update">update</button>
-  <button id="btn-delete">delete</button>
-  </div>
-  
-</dialog>
+
+  </dialog>
 
 
   <!-----------------------Create Post--------------------------------->
-<div class="dialog-container">
-      <div id="overlay" style="display: none;"></div>
- <dialog id="create-post-dialog" >
-    <div id="chuliki-form">
-      <form id="chuliki" class="create-post-form" method="dialog">
-  <div class="title">
-    <h2>leave your mark</h2>
-  </div>
-  <div class="half">
-    <div class="item">
-      <label for="picture">upload a picture</label>
-      <p>of a memory of something silly or something sad. a sunset a face a ladybug.</p>
-<input type="file" id="picture-upload" accept="image/*" required onchange="onImageSelected(event)">
+  <div class="dialog-container">
+    <div id="overlay" style="display: none;"></div>
+    <dialog id="create-post-dialog">
+      <div id="chuliki-form">
+        <form id="form-create-post" class="create-post-form" method="dialog">
+          <div class="title">
+            <h2>leave your mark</h2>
+          </div>
+          <div class="half">
+            <div class="item">
+              <label for="picture-upload">upload a picture</label>
+              <p>of a memory of something silly or something sad. a sunset a face a ladybug.</p>
+              <input name="image" type="url" id="picture-upload" required>
 
-    </div>
-  </div>
-  <div class="full">
-    <label for="write">write something</label>
-     <p>tell the strangers of the internet about your picture.</p>
-     <textarea name="" id="write" ></textarea required>
+            </div>
+          </div>
+          <div class="full">
+            <label for="write">write something</label>
+            <p>tell the strangers of the internet about your picture.</p>
+            <textarea name="description" id="write"></textarea required>
   </div>
   <div class="item1">
     <label for="name">add your name. or don't.</label>
-  <input type="text" id="picture-author" placeholder="anon">
+  <input name="name" type="text" id="picture-author" placeholder="anon">
   </div>
 
    <div class="item2">
     <label for="song">add a song it reminds you of.</label>
-  <input type="text" id="picture-song" placeholder="just say yes snow patrol">
+  <input name="song" type="text" id="picture-song" placeholder="just say yes snow patrol">
   </div>
 
   <div class="item3">
     <label for="year">what year was it taken?</label>
-  <input type="text" id="picture-year" placeholder="2019">
+  <input name="year" type="text" id="picture-year" placeholder="2019">
   </div>
   <div class="action">
-    <input id="form-create-post"type="submit" value="post">
+    <input type="submit" value="post">
     <input type="reset" value="reset">
   </div>
   </div>
- <button id="close-create-post-dialog">Close</button>
- </dialog>
+ <button type="button" id="close-create-post-dialog">Close</button>
 </form>
+</dialog>
     
 </div>
 
@@ -128,46 +132,36 @@
   <div class="full">
     <label for="write">Write something new.</label>
      <textarea name="" id="update-post-description" required></textarea>
-  </div>
-  <div class="item1">
-    <label for="name">Add your name. Or don't.</label>
-  <input type="text" id="update-post-name" placeholder="Anon">
-  </div>
+          </div>
+          <div class="item1">
+            <label for="name">Add your name. Or don't.</label>
+            <input type="text" id="update-post-name" placeholder="Anon">
+          </div>
 
-   <div class="item2">
-    <label for="song">Add a song it reminds you of.</label>
-  <input type="text" id="update-post-song" placeholder="Just say yes snow patrol">
-  </div>
+          <div class="item2">
+            <label for="song">Add a song it reminds you of.</label>
+            <input type="text" id="update-post-song" placeholder="Just say yes snow patrol">
+          </div>
 
-  <div class="item3">
-    <label for="year">What year was it taken?</label>
-  <input type="text" id="update-post-year" placeholder="2019">
-  </div>
+          <div class="item3">
+            <label for="year">What year was it taken?</label>
+            <input type="text" id="update-post-year" placeholder="2019">
+          </div>
 
-  <input type="hidden" id="update-post-id" value="">
-  <button id="btn-update" class="button">Update</button>
-  </form>
- </dialog>
+          <input type="hidden" id="update-post-id" value="">
+          <button id="btn-update" class="button">Update</button>
+        </form>
+    </dialog>
 
-  <footer>
-    <ul>
-      <li><a href="aboutPage.html">about.</a></li>
-      <li><a href="allPosts.html">all posts.</a></li>
-      <li><button id="open-create-post-dialog" class="button-like-text">leave your mark.</button></li>
-</li>
-    </ul>
-  </footer>
-  <script src="script.js"></script>
+    <footer>
+      <ul>
+        <li><a href="aboutPage.html">about.</a></li>
+        <li><a href="allPosts.html">all posts.</a></li>
+        <li><button id="open-create-post-dialog" class="button-like-text">leave your mark.</button></li>
+        </li>
+      </ul>
+    </footer>
+    <script src="script.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-   
